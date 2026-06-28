@@ -8,7 +8,7 @@ import random
 WIDTH = 400
 HEIGHT = 400
 DIRECTIONS = ["Up", "Down", "Left", "Right"]
-CELL_Size = 10
+CELL_SIZE = 10
 DELAY = 100 #задержка между движениями змеи
 
 
@@ -35,17 +35,16 @@ game_over = False
 
 def create_food():
     while True:
-        x = random.randint(0, (WIDTH - CELL_SIZE) // CELL_SIZE) * CELL_Size
-        y = random.randint(0, (HEIGHT - CELL_SIZE) // CELL_SIZE) * CELL_Size
+        x = random.randint(0, (WIDTH - CELL_SIZE) // CELL_SIZE) * CELL_SIZE
+        y = random.randint(0, (HEIGHT - CELL_SIZE) // CELL_SIZE) * CELL_SIZE
         if (x, y) not in snake: # проверка не находится ли еда внутри змеи
             return (x, y)
-food = create_food
+food = create_food()
 
 def draw_food():
     canvas.create_rectangle(
         food[0], food[1],
-        food[0] + CELL_SIZE,
-        food[1] + CELL_SIZE,
+        food[0] + CELL_SIZE, food[1] + CELL_SIZE,
         fill="red",
     )
 
